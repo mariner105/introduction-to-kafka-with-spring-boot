@@ -1,6 +1,12 @@
+# Disable IPV6 in WSL Before Starting Kafka
 We need to re-enter the following in WSL2
 after each restart so that Windows apps can connect to Kafka.
-https://www.conduktor.io/kafka/how-to-install-apache-kafka-on-windows/
+
+**./ipv6-disable.sh**
+
+Online reference to setting up WSL2: https://www.conduktor.io/kafka/how-to-install-apache-kafka-on-windows/
+
+ipv6-disable.sh contains the following commands:
 
 sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
 
