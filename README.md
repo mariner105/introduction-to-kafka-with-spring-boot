@@ -1,3 +1,11 @@
+We need to re-enter the following in WSL2
+after each restart so that Windows apps can connect to Kafka.
+https://www.conduktor.io/kafka/how-to-install-apache-kafka-on-windows/
+
+sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+
+sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
+
 # Introduction to Kafka with Spring Boot
 
 This repository contains the code to support the [Introduction to Kafka with Spring Boot](https://www.udemy.com/course/introduction-to-kafka-with-spring-boot/?referralCode=15118530CA63AD1AF16D) online course.
