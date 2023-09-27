@@ -13,6 +13,7 @@ public class DispatchService {
 
     private static final String DISPATCH_TRACKING_TOPIC = "dispatch.tracking";
     private static final String ORDER_DISPATCHED_TOPIC = "order.dispatched";
+    private static final String DISPATCH_TRACKING_TOPIC = "dispatch.tracking";
     private final KafkaTemplate<String, Object> kafkaProducer;
 
     public void process(OrderCreated orderCreated) throws Exception {
@@ -25,5 +26,6 @@ public class DispatchService {
                 .orderId(orderCreated.getOrderId())
                 .build();
         kafkaProducer.send(ORDER_DISPATCHED_TOPIC, orderDispatched).get();
+        kafkaProducer.send(DISPATCH_TRACKING_TOPIC, orderDispatched.getOrderId()).get();
     }
 }
